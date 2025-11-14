@@ -1,0 +1,600 @@
+[
+    {
+        "sceneId": "introduction",
+        "backgroundImage": "assets/bg/village1.png",
+        "dialogue": [
+            {
+                "characterName": "Narrator",
+                "currentlyTalking": "character1",
+                "character1Image": "",
+                "character2Image": "",
+                "text": "Tom the farmer has recently been given the techniques of his family. This techniques is what made his family become successful farmers, always with bountiful harvest.",
+                "choices": []
+            },
+            {
+                "characterName": "Tom, Farmer",
+                "currentlyTalking": "character1",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "",
+                "text": "With this technique that I inherited from my family, I can achieve my dream!",
+                "choices": []
+            },
+            {
+                "characterName": "Tom",
+                "currentlyTalking": "character1",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "",
+                "text": "But I still need to buy some tools to help me along the way.",
+                "choices": []
+            }
+        ],
+        "nextSceneId": "beginner_merchant"
+    },
+    {
+        "sceneId": "beginner_merchant",
+        "backgroundImage": "assets/bg/stall1.png",
+        "dialogue": [
+            {
+                "characterName": "Tom",
+                "currentlyTalking": "character1",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "",
+                "text": "Hello, how much for this shovel?",
+                "choices": []
+            },
+            {
+                "characterName": "Tobias, Beginner Merchant",
+                "currentlyTalking": "character2",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "assets/new-merchant1.png",
+                "text": "Hello! This shovel costs 50 coins.",
+                "choices": []
+            },
+            {
+                "characterName": "Tom",
+                "currentlyTalking": "character1",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "assets/new-merchant1.png",
+                "text": "I only have 25 coins now, can I pay you the other half later?",
+                "choices": []
+            },
+            {
+                "characterName": "Tobias",
+                "currentlyTalking": "character2",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "assets/new-merchant1.png",
+                "text": "Sure! Just sell your products to me exclusively!",
+                "choices": []
+            },
+            {
+                "characterName": "Tom",
+                "currentlyTalking": "character1",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "assets/new-merchant1.png",
+                "text": "Deal! Thank you so much!",
+                "choices": []
+            }
+        ],
+        "nextSceneId": "growing_farm"
+    },
+    {
+        "sceneId": "growing_farm",
+        "backgroundImage": "assets/bg/farmhouse1.png",
+        "dialogue": [
+            {
+                "characterName": "Narrator",
+                "currentlyTalking": "character1",
+                "character1Image": "",
+                "character2Image": "",
+                "text": "After several months of bountiful harvests...",
+                "choices": []
+            },
+            {
+                "characterName": "Tom",
+                "currentlyTalking": "character1",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "",
+                "text": "I am really helpful to Tobias. He has given me fair prices on my vegetables.",
+                "choices": []
+            },
+            {
+                "characterName": "Tom",
+                "currentlyTalking": "character1",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "",
+                "text": "He also gives me more time to pay my debt to him.",
+                "choices": []
+            },
+            {
+                "characterName": "Tobias",
+                "currentlyTalking": "character2",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "assets/new-merchant1.png",
+                "text": "Hey Tom! I'm here again to buy your vegetables.",
+                "choices": []
+            },
+            {
+                "characterName": "Tom",
+                "currentlyTalking": "character1",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "assets/new-merchant1.png",
+                "text": "Right on time! I have just finished harvesting this batch.",
+                "choices": []
+            }
+        ],
+        "nextSceneId": "rich_merchant_talks"
+    },
+    {
+        "sceneId": "rich_merchant_talks",
+        "backgroundImage": "assets/bg/farmhouse1.png",
+        "dialogue": [
+            {
+                "characterName": "Narrator",
+                "currentlyTalking": "character1",
+                "character1Image": "",
+                "character2Image": "",
+                "text": "The vegetables that Tobias gets from Tom are excellent. After months of selling well, a rich merchant suddenly comes...",
+                "choices": []
+            },
+            {
+                "characterName": "Sterling, Rich Merchant",
+                "currentlyTalking": "character2",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "assets/rich-merchant1.png",
+                "text": "Hello, peasant! I see you are doing well. I have some business propositions for you.",
+                "choices": []
+            },
+            {
+                "characterName": "Sterling",
+                "currentlyTalking": "character2",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "assets/rich-merchant1.png",
+                "text": "If you stop selling your products to that Tobias and sell them to me, I promise you riches!",
+                "choices": []
+            },
+            {
+                "characterName": "Sterling",
+                "currentlyTalking": "character2",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "assets/rich-merchant1.png",
+                "text": "What do you say?",
+                "choices": [
+                    {
+                        "choiceText": "Sure, I will sell to you from now on.",
+                        "nextSceneId": "sell_to_rich_merchant"
+                    },
+                    {
+                        "choiceText": "No, I will continue selling to Tobias.",
+                        "nextSceneId": "continue_with_tobias"
+                    }
+                ]
+            }
+        ],
+        "nextSceneId": ""
+    },
+    {
+        "sceneId": "sell_to_rich_merchant",
+        "backgroundImage": "assets/bg/farmhouse1.png",
+        "dialogue": [
+            {
+                "characterName": "Tom",
+                "currentlyTalking": "character1",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "assets/rich-merchant1.png",
+                "text": "Sure, I will sell to you from now on.",
+                "choices": []
+            },
+            {
+                "characterName": "Sterling",
+                "currentlyTalking": "character2",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "assets/rich-merchant1.png",
+                "text": "HAHAHA, I knew you peasants will not be able to reject a few more coins!",
+                "choices": []
+            },
+            {
+                "characterName": "Narrator",
+                "currentlyTalking": "character1",
+                "character1Image": "",
+                "character2Image": "",
+                "text": "Unlike what he promised, Sterling only pays Tom the minimum amount, yet he sells them to nobles for a high price.",
+                "choices": []
+            },
+            {
+                "characterName": "Narrator",
+                "currentlyTalking": "character1",
+                "character1Image": "",
+                "character2Image": "",
+                "text": "Tom's vegetables are as popular as ever, but he is not becoming closer to his dreams.",
+                "choices": []
+            },
+            {
+                "characterName": "Tom",
+                "currentlyTalking": "character1",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "",
+                "text": "The king's birthday is coming soon. Should I give him a present? Or just focus on my farm?",
+                "choices": [
+                    {
+                        "choiceText": "Use all resources for a present to the King",
+                        "nextSceneId": "king_present_sterling"
+                    },
+                    {
+                        "choiceText": "Just focus on the farm",
+                        "nextSceneId": "ending2"
+                    }]
+            }
+        ],
+        "nextSceneId": ""
+    },
+    {
+        "sceneId": "king_present_sterling",
+        "backgroundImage": "assets/bg/farmhouse1.png",
+        "dialogue": [
+            {
+                "characterName": "Narrator",
+                "currentlyTalking": "character1",
+                "character1Image": "",
+                "character2Image": "",
+                "text": "After a few more weeks...",
+                "choices": []
+            },
+            {
+                "characterName": "Sterling",
+                "currentlyTalking": "character2",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "assets/rich-merchant1.png",
+                "text": "HAHAHA! That is an excellent looking vegetable. Now sell that to me for 20 coins!",
+                "choices": []
+            },
+            {
+                "characterName": "Tom",
+                "currentlyTalking": "character1",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "assets/rich-merchant1.png",
+                "text": "What? No! This is a present to the king!",
+                "choices": []
+            },
+            {
+                "characterName": "Sterling",
+                "currentlyTalking": "character2",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "assets/rich-merchant1.png",
+                "text": "HAHAHA! I know, and I shall give it to him myself! Did you really think his majesty would even let a poor farmer like you in his castle?",
+                "choices": []
+            },
+            {
+                "characterName": "Sterling",
+                "currentlyTalking": "character2",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "assets/rich-merchant1.png",
+                "text": "And I would like to remind you that you still have an outstanding debt to me!",
+                "choices": []
+            }
+        ],
+        "nextSceneId": "ending1"
+    },
+    {
+        "sceneId": "ending1",
+        "backgroundImage": "assets/bg/palace1.png",
+        "dialogue": [
+            {
+                "characterName": "Tobias",
+                "currentlyTalking": "character1",
+                "character1Image": "assets/rich-merchant2.png",
+                "character2Image": "",
+                "text": "Good Day, your majesty. My humble self presents you this vegetable!",
+                "choices": []
+            },
+            {
+               "characterName": "Alberic, King",
+                "currentlyTalking": "character2",
+                "character1Image": "assets/rich-merchant2.png",
+                "character2Image": "assets/king.png",
+                "text": "My gratitudes, merchant. This is an excellent vegetable, indeed!",
+                "choices": []
+            },
+            {
+                "characterName": "Alberic",
+                "currentlyTalking": "character2",
+                "character1Image": "assets/rich-merchant2.png",
+                "character2Image": "assets/king.png",
+                "text": "I shall reward you for this present.",
+                "choices": []
+            },
+            {
+                "characterName": "Tobias",
+                "currentlyTalking": "character1",
+                "character1Image": "assets/rich-merchant2.png",
+                "character2Image": "assets/king.png",
+                "text": "Thank you, you majesty! May your days be filled with riches.",
+                "choices": []
+            },
+            {
+                "characterName": "Narrator",
+                "currentlyTalking": "character1",
+                "character1Image": "",
+                "character2Image": "",
+                "text": "Sterling was rewarded and became successful enough to become a noble. Tom, meanwhile, is still haunted with debts.",
+                "choices": []
+            },
+            {
+                "characterName": "Narrator",
+                "currentlyTalking": "character1",
+                "character1Image": "",
+                "character2Image": "",
+                "text": "Even though it was his hard work that made him rich, Sterling did not care about Tom.",
+                "choices": []
+            }
+        ],
+        "nextSceneId": ""
+    },
+    {
+        "sceneId": "ending2",
+        "backgroundImage": "assets/bg/farmhouse1.png",
+        "dialogue": [
+            {
+                "characterName": "Narrator",
+                "currentlyTalking": "character1",
+                "character1Image": "",
+                "character2Image": "",
+                "text": "The high costs of maintaining the farm has made Tom even porrer than before.",
+                "choices": []
+            },
+            {
+                "characterName": "Tom",
+                "currentlyTalking": "character1",
+                "character1Image": "assets/farmer2.png",
+                "character2Image": "",
+                "text": "My vegetables sell everywehre, yet I am still in debt.",
+                "choices": []
+            },
+            {
+                "characterName": "Tom",
+                "currentlyTalking": "character1",
+                "character1Image": "assets/farmer2.png",
+                "character2Image": "",
+                "text": "It seems like partnering with Sterling was a mistake.",
+                "choices": []
+            },
+            {
+                "characterName": "Narrator",
+                "currentlyTalking": "character1",
+                "character1Image": "",
+                "character2Image": "",
+                "text": "Tom then sold his family's farming techniques to Sterling to escape his debt.",
+                "choices": []
+            },
+            {
+                "characterName": "Narrator",
+                "currentlyTalking": "character1",
+                "character1Image": "",
+                "character2Image": "",
+                "text": "While Tom is now out of debt, he can no longer achieve his dream of becoming rich.",
+                "choices": []
+            }
+        ],
+        "nextSceneId": ""
+    },
+    {
+        "sceneId": "continue_with_tobias",
+        "backgroundImage": "assets/bg/farmhouse1.png",
+        "dialogue": [
+            {
+                "characterName": "Tom",
+                "currentlyTalking": "character1",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "assets/rich-merchant1.png",
+                "text": "No, I will continue selling to Tobias.",
+                "choices": []
+            },
+            {
+                "characterName": "Sterling",
+                "currentlyTalking": "character2",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "assets/rich-merchant1.png",
+                "text": "HAHAHA, you will regret this choice you've made, peasant.",
+                "choices": []
+            },
+            {
+                "characterName": "Tobias",
+                "currentlyTalking": "character2",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "assets/new-merchant1.png",
+                "text": "I've heard the rumors. Why did you refuse the Rich Merchant's offer?",
+                "choices": []
+            },
+            {
+                "characterName": "Tom",
+                "currentlyTalking": "character1",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "assets/new-merchant1.png",
+                "text": "Am I supposed to just forget the helped you've given to me this last few months?",
+                "choices": []
+            },
+            {
+                "characterName": "Tobias",
+                "currentlyTalking": "character2",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "assets/new-merchant1.png",
+                "text": "HAHAHA, thank you Tom.",
+                "choices": []
+            },
+            {
+                "characterName": "Narrator",
+                "currentlyTalking": "character1",
+                "character1Image": "",
+                "character2Image": "",
+                "text": "A few weeks passed...",
+                "choices": []
+            },
+            {
+                "characterName": "Tom",
+                "currentlyTalking": "character1",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "",
+                "text": "The king's birthday is coming soon. Should I give him a present? Or just focus on my farm?",
+                "choices": [
+                    {
+                        "choiceText": "Use all resources for a present to the King",
+                        "nextSceneId": "king_present_tobias"
+                    },
+                    {
+                        "choiceText": "Just focus on the farm",
+                        "nextSceneId": "ending4"
+                    }]
+            }
+        ],
+        "nextSceneId": ""
+    },
+    {
+        "sceneId": "king_present_tobias",
+        "backgroundImage": "assets/bg/farmhouse1.png",
+        "dialogue": [
+            {
+                "characterName": "Narrator",
+                "currentlyTalking": "character1",
+                "character1Image": "",
+                "character2Image": "",
+                "text": "With the help of Tobias, Tom has now made the best vegetable he has ever grown in his life.",
+                "choices": []
+            },
+            {
+                "characterName": "Tom",
+                "currentlyTalking": "character1",
+                "character1Image": "assets/farmer2.png",
+                "character2Image": "",
+                "text": "Let's give this to vegetable to his majesty for his birthday.",
+                "choices": []
+            },
+            {
+                "characterName": "Tobias",
+                "currentlyTalking": "character2",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "assets/new-merchant1.png",
+                "text": "Let me help you with that, I know a few people inside the palace.",
+                "choices": []
+            },
+            {
+                "characterName": "Narrator",
+                "currentlyTalking": "character1",
+                "character1Image": "",
+                "character2Image": "",
+                "text": "The two headed to the palace to present their gift to his majesty.",
+                "choices": []
+            }
+        ],
+        "nextSceneId": "ending3"
+    },
+    {
+        "sceneId": "ending3",
+        "backgroundImage": "assets/bg/palace1.png",
+        "dialogue": [
+            {
+                "characterName": "Tobias",
+                "currentlyTalking": "character1",
+                "character1Image": "assets/new-merchant2.png",
+                "character2Image": "",
+                "text": "Greetings, your majesty. My friend and I has bought you a present.",
+                "choices": []
+            },
+            {
+                "characterName": "Alberic, King",
+                "currentlyTalking": "character2",
+                "character1Image": "assets/new-merchant2.png",
+                "character2Image": "assets/king.png",
+                "text": "HAHAHA, I am thankful for that. Is your friend the one who grew this vegetable?",
+                "choices": []
+            },
+            {
+                "characterName": "Tobias",
+                "currentlyTalking": "character2",
+                "character1Image": "assets/new-merchant2.png",
+                "character2Image": "assets/king.png",
+                "text": "Yes, you majesty.",
+                "choices": []
+            },
+            {
+                "characterName": "Tom",
+                "currentlyTalking": "character2",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "assets/king.png",
+                "text": "I hope that you are pleased with our present your majesty.",
+                "choices": []
+            },
+            {
+                "characterName": "Alberic",
+                "currentlyTalking": "character2",
+                "character1Image": "assets/farmer1.png",
+                "character2Image": "assets/king.png",
+                "text": "That I am, I will now reward you for this.",
+                "choices": []
+            },
+            {
+                "characterName": "Narrator",
+                "currentlyTalking": "character1",
+                "character1Image": "",
+                "character2Image": "",
+                "text": "The King's reward has made Tom and Tobias rich. Tom has finally achieved his dream.",
+                "choices": []
+            }
+        ],
+        "nextSceneId": ""
+    },
+    {
+        "sceneId": "ending4",
+        "backgroundImage": "assets/bg/farmhouse2.png",
+        "dialogue": [
+            {
+                "characterName": "Narrator",
+                "currentlyTalking": "character1",
+                "character1Image": "",
+                "character2Image": "",
+                "text": "After a few years of farming. Tom's vegetables have become well known in the kingdom.",
+                "choices": []
+            },
+            {
+                "characterName": "Tobias",
+                "currentlyTalking": "character2",
+                "character1Image": "assets/farmer3.png",
+                "character2Image": "assets/new-merchant3.png",
+                "text": "We've really come a long way haven't we? HAHAHA!",
+                "choices": []
+            },
+            {
+                "characterName": "Tom",
+                "currentlyTalking": "character1",
+               "character1Image": "assets/farmer3.png",
+                "character2Image": "assets/new-merchant3.png",
+                "text": "That's true! You've really become a rich merchant now.",
+                "choices": []
+            },
+            {
+                "characterName": "Tobias",
+                "currentlyTalking": "character2",
+                "character1Image": "assets/farmer3.png",
+                "character2Image": "assets/new-merchant3.png",
+                "text": "You're successful as well too! Your farm has really grown a lot.",
+                "choices": []
+            },
+            {
+                "characterName": "Tom",
+                "currentlyTalking": "character1",
+               "character1Image": "assets/farmer3.png",
+                "character2Image": "assets/new-merchant3.png",
+                "text": "HAHAHA, thanks to you, I have finally achieve my dream.",
+                "choices": []
+            },
+            {
+                "characterName": "Narrator",
+                "currentlyTalking": "character1",
+                "character1Image": "",
+                "character2Image": "",
+                "text": "Tom's dream of becoming a rich farmer has now been achieved.",
+                "choices": []
+            }
+        ],
+        "nextSceneId": ""
+    }
+
+]
