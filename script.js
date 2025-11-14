@@ -3,6 +3,7 @@ let sceneData = [];
 let currentSceneId = "introduction";
 let currentDialogueIndex = 0;
 let isFetching = false;
+let gameFinished = false;
 
 // --- 2. DOM Element References ---
 const gameContainer = document.getElementById('game-container');
@@ -11,10 +12,7 @@ const dialogueText = document.getElementById('dialogue-text');
 const characterSpriteLeft = document.getElementById('character-sprite-left');
 const characterSpriteRight = document.getElementById('character-sprite-right');
 const nextButton = document.getElementById('next-button');
-
-const choicesContainer = document.createElement('div');
-choicesContainer.id = 'choices-container';
-gameContainer.appendChild(choicesContainer);
+const choicesContainer = document.getElementById('choices-container'); 
 
 // --- 3. Utility Function: Fetch and Load Data ---
 async function loadStory() {
@@ -39,8 +37,35 @@ async function loadStory() {
     }
 }
 
+function resetGame() {
+    // Reset state variables
+    currentSceneId = "introduction";
+    currentDialogueIndex = 0;
+    gameFinished = false;
+    
+    // Reset UI elements
+    nextButton.disabled = false;
+    nextButton.textContent = "Next >>";
+    nextButton.style.display = 'block';
+    choicesContainer.innerHTML = '';
+    
+    // Clear sprites and set default background/text
+    characterSpriteLeft.src = "";
+    characterSpriteRight.src = "";
+    characterSpriteLeft.style.opacity = 0;
+    characterSpriteRight.style.opacity = 0;
+    charName.textContent = "Narrator";
+    dialogueText.textContent = "Welcome to the start of the story! Click 'Next' to continue.";
+    
+    // Rerun the game from the start
+    advanceStory("introduction");
+}
+
+
 // --- 4. Main Function to Advance the Story ---
 function advanceStory(nextSceneId = null) {
+    if (gameFinished) return; // Prevent advancement if the game is over
+
     // 4.1. Handle Scene Transition
     if (nextSceneId !== null) {
         currentSceneId = nextSceneId;
@@ -56,6 +81,7 @@ function advanceStory(nextSceneId = null) {
         dialogueText.textContent = `The scene ID '${currentSceneId}' was not found.`;
         nextButton.disabled = true;
         nextButton.textContent = "FIN";
+        gameFinished = true;
         return;
     }
 
@@ -65,15 +91,29 @@ function advanceStory(nextSceneId = null) {
     if (currentDialogueIndex >= dialogue.length) {
         const defaultNextSceneId = currentScene.nextSceneId;
 
-        if (defaultNextSceneId) {
+        if (defaultNextSceneId && defaultNextSceneId !== "") {
             // Automatically transition to the next scene if no choice was made and nextSceneId is set
             advanceStory(defaultNextSceneId);
         } else {
-            // End of story or branch
+            // --- End of Story/Branch Handling (Game Finished) ---
+            gameFinished = true;
+            nextButton.style.display = 'none'; // Hide the Next button
+
             charName.textContent = "The End";
-            dialogueText.textContent = "Thank you for playing this game!";
-            nextButton.disabled = true;
-            nextButton.textContent = "FIN";
+            dialogueText.textContent = "Thank you for playing this game! Press 'Play Again' to restart.";
+            
+            // Create the Play Again button
+            const restartButton = document.createElement('button');
+            restartButton.textContent = "Play Again";
+            restartButton.classList.add('choice-button'); // Reuse choice-button style
+            restartButton.style.marginTop = '10px';
+            restartButton.style.textAlign = 'center';
+
+            restartButton.addEventListener('click', () => {
+                resetGame(); // Call the new reset function
+            });
+
+            choicesContainer.appendChild(restartButton);
         }
         return;
     }
@@ -100,7 +140,7 @@ function advanceStory(nextSceneId = null) {
         characterSpriteLeft.style.opacity = 1; // Show sprite if image exists
     } else {
         characterSpriteLeft.src = "";
-        characterSpriteLeft.style.opacity = 0; // **HIDE SPRITE if no image**
+        characterSpriteLeft.style.opacity = 0; // HIDE SPRITE if no image
     }
 
     // 2. Handle Character 2 (Right)
@@ -109,31 +149,33 @@ function advanceStory(nextSceneId = null) {
         characterSpriteRight.style.opacity = 1; // Show sprite if image exists
     } else {
         characterSpriteRight.src = "";
-        characterSpriteRight.style.opacity = 0; // **HIDE SPRITE if no image**
+        characterSpriteRight.style.opacity = 0; // HIDE SPRITE if no image
     }
 
     // 3. Apply Focus/Active Class
-    if (currentDialogue.currentlyTalking === 'character1' && currentDialogue.character1Image) {
-        // Character 1 (Left) is speaking and has an image
-        characterSpriteLeft.classList.add('active-sprite');
-        if (currentDialogue.character2Image) {
-            characterSpriteRight.classList.add('inactive-sprite');
+    const char1Visible = characterSpriteLeft.style.opacity == 1;
+    const char2Visible = characterSpriteRight.style.opacity == 1;
+
+    if (currentDialogue.characterName !== "Narrator") {
+        if (currentDialogue.currentlyTalking === 'character1' && char1Visible) {
+            // Character 1 (Left) is speaking
+            characterSpriteLeft.classList.add('active-sprite');
+            if (char2Visible) characterSpriteRight.classList.add('inactive-sprite');
+        } else if (currentDialogue.currentlyTalking === 'character2' && char2Visible) {
+            // Character 2 (Right) is speaking
+            characterSpriteRight.classList.add('active-sprite');
+            if (char1Visible) characterSpriteLeft.classList.add('inactive-sprite');
+        } else {
+            // Fallback for dialogue where speaker isn't explicitly defined/Narrator
+            if (char1Visible) characterSpriteLeft.classList.add('inactive-sprite');
+            if (char2Visible) characterSpriteRight.classList.add('inactive-sprite');
         }
-    } else if (currentDialogue.currentlyTalking === 'character2' && currentDialogue.character2Image) {
-        // Character 2 (Right) is speaking and has an image
-        characterSpriteRight.classList.add('active-sprite');
-        if (currentDialogue.character1Image) {
-            characterSpriteLeft.classList.add('inactive-sprite');
-        }
-    } else if (currentDialogue.characterName === "Narrator") {
-        // Narrator or no specific speaker - dim any visible sprites
-        if (currentDialogue.character1Image) {
-            characterSpriteLeft.classList.add('inactive-sprite');
-        }
-        if (currentDialogue.character2Image) {
-            characterSpriteRight.classList.add('inactive-sprite');
-        }
+    } else {
+         // Narrator or no specific speaker - dim any visible sprites
+        if (char1Visible) characterSpriteLeft.classList.add('inactive-sprite');
+        if (char2Visible) characterSpriteRight.classList.add('inactive-sprite');
     }
+
 
     // 4.4. Handle Choices
     if (currentDialogue.choices && currentDialogue.choices.length > 0) {

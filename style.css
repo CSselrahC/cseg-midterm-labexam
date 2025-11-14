@@ -36,7 +36,7 @@ html {
 #character-sprite-left,
 #character-sprite-right {
     max-height: 100%;
-    max-width: 45%;
+    max-width: 45%; 
     object-fit: contain;
     transition: opacity 0.3s, transform 0.3s;
     position: relative;
@@ -72,7 +72,7 @@ html {
     height: 120px;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
-    padding: 15px;
+    padding: 10px;
     box-sizing: border-box;
     border-top: 2px solid #999;
 }
@@ -80,12 +80,14 @@ html {
 #character-name {
     font-weight: bold;
     font-size: 1.2em;
-    margin-bottom: 5px;
+    /* Reduced margin-bottom to pull name up slightly */
+    margin-bottom: 0px; 
     color: #4CAF50;
 }
 
 #dialogue-text {
-    margin: 0;
+    /* Pushed the text up by making the top margin negative */
+    margin: -5px 0 0 0; 
     font-size: 1.1em;
 }
 

@@ -464,7 +464,7 @@
             {
                 "characterName": "Tom",
                 "currentlyTalking": "character1",
-                "character1Image": "assets/farmer2.png",
+                "character1Image": "assets/farmer1.png",
                 "character2Image": "",
                 "text": "Let's give this to vegetable to his majesty for his birthday.",
                 "choices": []
@@ -513,7 +513,7 @@
                 "currentlyTalking": "character2",
                 "character1Image": "assets/new-merchant2.png",
                 "character2Image": "assets/king.png",
-                "text": "Yes, you majesty.",
+                "text": "Yes, your majesty.",
                 "choices": []
             },
             {
