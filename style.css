@@ -7,7 +7,6 @@ html {
     align-items: center;
     font-family: sans-serif;
     background-color: #333;
-    /* Dark background */
 }
 
 #game-container {
@@ -17,24 +16,19 @@ html {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     position: relative;
     background-size: cover;
-    /* Background image placeholder */
     background-position: center;
     transition: background-image 0.5s ease-in-out;
-    /* Smooth transition for backgrounds */
     background-image: url('assets/bg/village1.jpg');
 }
 
 /* Character Display */
-/* ... existing CSS for #game-container, #dialogue-box, etc. ... */
-
-/* Character Display: Update to center the container but let sprites flow */
 #character-display {
     position: absolute;
     bottom: 120px;
     width: 100%;
     height: 70%;
-    display: flex; /* Allows positioning of multiple sprites */
-    justify-content: space-between; /* Space out the sprites */
+    display: flex;
+    justify-content: space-between;
     align-items: flex-end;
 }
 
@@ -42,37 +36,32 @@ html {
 #character-sprite-left,
 #character-sprite-right {
     max-height: 100%;
-    /* Keep aspect ratio and size */
-    max-width: 45%; 
+    max-width: 45%;
     object-fit: contain;
     transition: opacity 0.3s, transform 0.3s;
-    /* Smooth transition for visuals */
-    position: relative; /* Allows z-index and focus effects */
+    position: relative;
 }
 
-/* Specific positioning and Z-Index */
 #character-sprite-left {
-    margin-left: 20px; /* Slight offset from the edge */
+    margin-left: 20px;
 }
 
 #character-sprite-right {
-    margin-right: 20px; /* Slight offset from the edge */
+    margin-right: 20px;
 }
 
-/* New CSS: Style for the currently speaking character (focus effect) */
 .active-sprite {
     opacity: 1 !important;
-    transform: scale(1.05) translateY(-5px); /* Slight lift and scale */
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); /* Subtle glow */
-    z-index: 5; /* Bring to front */
+    transform: scale(1.05) translateY(-5px);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+    z-index: 5;
 }
 
-/* New CSS: Style for the non-speaking character (dim effect) */
 .inactive-sprite {
-    opacity: 0.6; /* Dim the non-speaking character */
+    opacity: 0.6;
     transform: scale(1);
     filter: brightness(0.7);
-    z-index: 1; /* Send to back */
+    z-index: 1;
 }
 
 /* Dialogue Box */
@@ -82,7 +71,6 @@ html {
     width: 100%;
     height: 120px;
     background-color: rgba(0, 0, 0, 0.8);
-    /* Semi-transparent black */
     color: white;
     padding: 15px;
     box-sizing: border-box;
@@ -94,7 +82,6 @@ html {
     font-size: 1.2em;
     margin-bottom: 5px;
     color: #4CAF50;
-    /* Green name color */
 }
 
 #dialogue-text {
@@ -105,9 +92,7 @@ html {
 #choices-container {
     position: absolute;
     bottom: 10px;
-    /* Adjust as needed, should be near or above the dialogue box */
     width: calc(100% - 30px);
-    /* 100% width minus padding */
     padding: 0 15px;
     display: flex;
     flex-direction: column;
@@ -118,7 +103,6 @@ html {
 .choice-button {
     padding: 10px 15px;
     background-color: rgba(76, 175, 80, 0.9);
-    /* Green */
     color: white;
     border: 1px solid #4CAF50;
     cursor: pointer;
@@ -150,4 +134,3 @@ html {
 #next-button:hover {
     background-color: #45a049;
 }
-

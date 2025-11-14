@@ -222,7 +222,8 @@
                     {
                         "choiceText": "Just focus on the farm",
                         "nextSceneId": "ending2"
-                    }]
+                    }
+                ]
             }
         ],
         "nextSceneId": ""
@@ -287,7 +288,7 @@
                 "choices": []
             },
             {
-               "characterName": "Alberic, King",
+                "characterName": "Alberic, King",
                 "currentlyTalking": "character2",
                 "character1Image": "assets/rich-merchant2.png",
                 "character2Image": "assets/king.png",
@@ -442,7 +443,8 @@
                     {
                         "choiceText": "Just focus on the farm",
                         "nextSceneId": "ending4"
-                    }]
+                    }
+                ]
             }
         ],
         "nextSceneId": ""
@@ -564,7 +566,7 @@
             {
                 "characterName": "Tom",
                 "currentlyTalking": "character1",
-               "character1Image": "assets/farmer3.png",
+                "character1Image": "assets/farmer3.png",
                 "character2Image": "assets/new-merchant3.png",
                 "text": "That's true! You've really become a rich merchant now.",
                 "choices": []
@@ -580,7 +582,7 @@
             {
                 "characterName": "Tom",
                 "currentlyTalking": "character1",
-               "character1Image": "assets/farmer3.png",
+                "character1Image": "assets/farmer3.png",
                 "character2Image": "assets/new-merchant3.png",
                 "text": "HAHAHA, thanks to you, I have finally achieve my dream.",
                 "choices": []
@@ -596,5 +598,4 @@
         ],
         "nextSceneId": ""
     }
-
 ]

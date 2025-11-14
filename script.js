@@ -1,17 +1,17 @@
 // --- 1. Game Variables & State ---
-let sceneData = []; // Will hold the parsed JSON data
-let currentSceneId = "introduction"; // Start ID from scenes.json
+let sceneData = [];
+let currentSceneId = "introduction";
 let currentDialogueIndex = 0;
-let isFetching = false; // Prevent multiple fetches/reloads
+let isFetching = false;
 
 // --- 2. DOM Element References ---
 const gameContainer = document.getElementById('game-container');
 const charName = document.getElementById('character-name');
 const dialogueText = document.getElementById('dialogue-text');
-const characterSpriteLeft = document.getElementById('character-sprite-left'); // NEW
-const characterSpriteRight = document.getElementById('character-sprite-right'); // NEW
+const characterSpriteLeft = document.getElementById('character-sprite-left');
+const characterSpriteRight = document.getElementById('character-sprite-right');
 const nextButton = document.getElementById('next-button');
-// Add a container for choices (you'll need to add this to index.html)
+
 const choicesContainer = document.createElement('div');
 choicesContainer.id = 'choices-container';
 gameContainer.appendChild(choicesContainer);
@@ -41,7 +41,7 @@ async function loadStory() {
 
 // --- 4. Main Function to Advance the Story ---
 function advanceStory(nextSceneId = null) {
-    // 4.1. Handle Scene Transition (only called when a scene is completed or a choice is made)
+    // 4.1. Handle Scene Transition
     if (nextSceneId !== null) {
         currentSceneId = nextSceneId;
         currentDialogueIndex = 0; // Always reset dialogue index for a new scene
@@ -80,10 +80,6 @@ function advanceStory(nextSceneId = null) {
 
     // --- 4.3. Get the current dialogue object  ---
     const currentDialogue = dialogue[currentDialogueIndex];
-
-    // --- Update the UI ---
-
-    // Update the background image (only if the scene is changing, but safe to run every time)
     if (currentScene.backgroundImage) {
         gameContainer.style.backgroundImage = `url('${currentScene.backgroundImage}')`;
     }
@@ -147,10 +143,10 @@ function advanceStory(nextSceneId = null) {
         currentDialogue.choices.forEach(choice => {
             const choiceButton = document.createElement('button');
             choiceButton.textContent = choice.choiceText;
-            choiceButton.classList.add('choice-button'); // For styling
+            choiceButton.classList.add('choice-button');
             choiceButton.addEventListener('click', () => {
                 // When a choice is made, transition to the next scene
-                nextButton.style.display = 'block'; // Show Next button again
+                nextButton.style.display = 'block';
                 advanceStory(choice.nextSceneId);
             });
             choicesContainer.appendChild(choiceButton);
@@ -164,7 +160,7 @@ function advanceStory(nextSceneId = null) {
 }
 
 // --- 5. Event Listener ---
-nextButton.addEventListener('click', () => advanceStory(null)); // Pass null to signify not a scene jump
+nextButton.addEventListener('click', () => advanceStory(null));
 
 // --- 6. Initialization ---
 loadStory(); // Start the process of loading and then starting the story
